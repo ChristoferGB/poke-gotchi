@@ -1,15 +1,19 @@
+using RestSharp;
+
 namespace poke_gotchi;
 
 static class Program
 {
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
     [STAThread]
     static void Main()
     {
-        // To customize application configuration such as set high DPI settings or default font,
-        // see https://aka.ms/applicationconfiguration.
+        var client = new RestClient("https://pokeapi.co/api/v2/pokemon/");
+        var request = new RestRequest("", Method.Get);
+
+        var response = client.Get(request).Content;
+
+        Console.WriteLine(response);
+
         ApplicationConfiguration.Initialize();
         Application.Run(new Form1());
     }    
