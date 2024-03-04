@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "REGamkmFI6m+g8n1YmeVGQIM49lDG3BGs/GWU2U3BU1YBu8Q7DuOY/qc7AkUPYPzHaoZZzvQZwIGv9wVyIC3gw==",
+  "dgSpecHash": "9L80z2e5aimSm89ubIXiu2fdZmaJuYi7WqxK+I394j8Mg0EXmUUXKXkPw0gFpQFKaq9u5xP0Ufh9I1jENtiLIA==",
   "success": true,
   "projectFilePath": "C:\\Users\\christofer.bernardo\\Documents\\Projetos\\poke-gotchi\\poke-gotchi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\christofer.bernardo\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
     "C:\\Users\\christofer.bernardo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\system.text.json\\8.0.2\\system.text.json.8.0.2.nupkg.sha512"
   ],
   "logs": []
 }

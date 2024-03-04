@@ -48,6 +48,10 @@
             "RestSharp": {
               "target": "Package",
               "version": "[110.2.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.2, )"
             }
           },
           "imports": [
