@@ -1,10 +1,7 @@
-using RestSharp;
-
-namespace poke_gotchi;
+﻿using RestSharp;
 
 static class Program
 {
-    [STAThread]
     static void Main()
     {
         var client = new RestClient("https://pokeapi.co/api/v2/pokemon/");
@@ -13,8 +10,5 @@ static class Program
         var response = client.Get(request).Content;
 
         Console.WriteLine(response);
-
-        ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
-    }    
+    }
 }

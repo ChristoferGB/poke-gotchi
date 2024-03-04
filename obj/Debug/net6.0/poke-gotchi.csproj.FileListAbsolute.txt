@@ -1,0 +1,15 @@
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\bin\Debug\net6.0\poke-gotchi.exe
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\bin\Debug\net6.0\poke-gotchi.deps.json
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\bin\Debug\net6.0\poke-gotchi.runtimeconfig.json
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\bin\Debug\net6.0\poke-gotchi.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\bin\Debug\net6.0\poke-gotchi.pdb
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.csproj.AssemblyReference.cache
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.AssemblyInfoInputs.cache
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.AssemblyInfo.cs
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.csproj.CoreCompileInputs.cache
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\refint\poke-gotchi.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.pdb
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\poke-gotchi.genruntimeconfig.cache
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\poke-gotchi\obj\Debug\net6.0\ref\poke-gotchi.dll

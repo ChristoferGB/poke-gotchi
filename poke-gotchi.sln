@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "poke-gotchi", "poke-gotchi.csproj", "{0EF7A065-9A1F-4C92-AEC3-22D8F9DC9C69}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "poke-gotchi", "poke-gotchi.csproj", "{2B97370C-B75F-4076-ABC8-1F2C4A21E3CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0EF7A065-9A1F-4C92-AEC3-22D8F9DC9C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0EF7A065-9A1F-4C92-AEC3-22D8F9DC9C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0EF7A065-9A1F-4C92-AEC3-22D8F9DC9C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0EF7A065-9A1F-4C92-AEC3-22D8F9DC9C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B97370C-B75F-4076-ABC8-1F2C4A21E3CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B97370C-B75F-4076-ABC8-1F2C4A21E3CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B97370C-B75F-4076-ABC8-1F2C4A21E3CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B97370C-B75F-4076-ABC8-1F2C4A21E3CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {53A7313E-BD31-4142-B0EB-F42346ACBE15}
+		SolutionGuid = {1D8B4B71-5215-4BDA-9B0F-BA15E4451E6E}
 	EndGlobalSection
 EndGlobal
