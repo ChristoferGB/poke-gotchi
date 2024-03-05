@@ -1,4 +1,4 @@
-﻿namespace poke_gotchi.Responses
+﻿namespace poke_gotchi.Model.Responses
 {
     public class PokemonDetailResponse
     {

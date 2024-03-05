@@ -1,13 +1,11 @@
-﻿namespace poke_gotchi.Entities
+﻿namespace poke_gotchi.Model
 {
     public class User
     {
-        public string? Name { get; set; }
+        public string Name { get; set; } = "";
         public List<Pokemon> AdoptedPokemon { get; set; } = new List<Pokemon>();
 
-        public User() { }
-
-        public void SetName(string? name)
+        public void SetName(string name)
         {
             Name = name;
         }
@@ -19,7 +17,7 @@
 
         public void AdoptPokemon(Pokemon pokemon)
         {
-            AdoptedPokemon?.Add(pokemon);
+            AdoptedPokemon.Add(pokemon);
         }
     }
 }

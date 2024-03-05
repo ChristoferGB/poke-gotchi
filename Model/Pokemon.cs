@@ -1,4 +1,4 @@
-﻿namespace poke_gotchi.Entities
+﻿namespace poke_gotchi.Model
 {
     public class Pokemon
     {
