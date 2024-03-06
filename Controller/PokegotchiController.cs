@@ -58,7 +58,7 @@ namespace poke_gotchi.Controller
 
             while (true)
             {
-                if (!int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= pokemonList.Results.Count)
+                if (!int.TryParse(Console.ReadLine(), out choice) || choice == 0 || choice > pokemonList.Results.Count)
                 {
                     Console.WriteLine("Invalid choice. Try again.");
                 }
@@ -73,7 +73,78 @@ namespace poke_gotchi.Controller
 
         private static void AdoptedPokemon()
         {
-            PokegotchiView.AdoptedPokemonList(user.AdoptedPokemon);
+            if (user.AdoptedPokemon.Count == 0)
+            {
+                PokegotchiView.AdoptedPokemonEmpty();
+                return;
+            }
+
+            int pokemonChoosed;
+            
+            while (true)
+            {
+                PokegotchiView.AdoptedPokemonList(user.AdoptedPokemon, user.Name);
+
+                if (!int.TryParse(Console.ReadLine(), out pokemonChoosed) || pokemonChoosed < 0 || pokemonChoosed > user.AdoptedPokemon.Count)
+                {
+                    Console.WriteLine("Invalid choice. Try again.");
+                }
+                else
+                    break;
+            }
+
+            if (pokemonChoosed != 0)
+                InteractPokemon(user.AdoptedPokemon[pokemonChoosed - 1]);
+        }
+
+        private static void InteractPokemon(Pokemon pokemon)
+        {
+            int interaction = 1;
+
+            while (interaction == 1)
+            {
+                PokegotchiView.InteractPokemonMenu(user.Name, pokemon.Name);
+
+                switch (Console.ReadLine())
+                {
+                    case "1":
+                        GetPokemonStatus(pokemon);
+                        break;
+                    case "2":
+                        FeedPokemon(pokemon);
+                        break;
+                    case "3":
+                        PlayWithPokemon(pokemon);
+                        break;
+                    case "4":
+                        RestPokemon(pokemon);
+                        break;
+                    case "5":
+                        interaction = 0;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option");
+                        break;
+                }
+            }
+        }
+
+        private static void FeedPokemon(Pokemon pokemon)
+        {
+            pokemon.Feed();
+            PokegotchiView.FeedPokemon(pokemon.Name);
+        }
+
+        private static void PlayWithPokemon(Pokemon pokemon)
+        {
+            pokemon.Play();
+            PokegotchiView.PlayWithPokemon(pokemon.Name);
+        }
+
+        private static void RestPokemon(Pokemon pokemon)
+        {
+            pokemon.Rest();
+            PokegotchiView.RestPokemon(pokemon.Name);
         }
 
         private static RestResponse GetPokemonResponse(string url)
@@ -139,10 +210,15 @@ namespace poke_gotchi.Controller
             PokegotchiView.PokemonInformation(pokemon, abilitiesNames);
         }
 
+        private static void GetPokemonStatus(Pokemon pokemon)
+        {
+            GetPokemonInformation(pokemon);
+            PokegotchiView.PokemonStatus(pokemon);
+        }
+
         private static void AdoptPokemon(Pokemon pokemon)
         {
             user.AdoptPokemon(pokemon);
-
             PokegotchiView.AdoptedPokemonMessage(user.Name, pokemon.Name);
         }
     }

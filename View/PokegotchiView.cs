@@ -63,12 +63,53 @@ namespace poke_gotchi.View
             Console.WriteLine($"{username}, you have adopted {pokemonName} successfully!");
         }
 
-        public static void AdoptedPokemonList(List<Pokemon> pokemonList)
+        public static void AdoptedPokemonList(List<Pokemon> pokemonList, string username)
         {
-            foreach (var pokemon in pokemonList)
+            for (int i = 0; i < pokemonList.Count; i++)
             {
-                Console.WriteLine(pokemon.Name);
+                Console.WriteLine($"{i + 1} - {pokemonList[i].Name}");
             }
+
+            Console.WriteLine($"{username}, if you wish to interact with one of your pokemon, type its number.");
+            Console.WriteLine("If you want to return, just type 0.");
+        }
+
+        public static void InteractPokemonMenu(string username, string pokemonName)
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine($"{username}, would you like to: ");
+            Console.WriteLine($"1 - Know how {pokemonName} is doing");
+            Console.WriteLine($"2 - Feed {pokemonName}");
+            Console.WriteLine($"3 - Play with {pokemonName}");
+            Console.WriteLine($"4 - Get {pokemonName} some rest");
+            Console.WriteLine("5 - Return");
+        }
+
+        public static void PokemonStatus(Pokemon pokemon)
+        {
+            Console.WriteLine(pokemon.GetSatietyStatus());
+            Console.WriteLine(pokemon.GetEnergyStatus());
+            Console.WriteLine(pokemon.GetMoodStatus());
+        }
+
+        public static void FeedPokemon(string pokemonName)
+        {
+            Console.WriteLine($"You have fed {pokemonName}!");
+        }
+
+        public static void PlayWithPokemon(string pokemonName)
+        {
+            Console.WriteLine($"You have played with {pokemonName}!");
+        }
+
+        public static void RestPokemon(string pokemonName)
+        {
+            Console.WriteLine($"You have rested {pokemonName}!");
+        }
+
+        public static void AdoptedPokemonEmpty()
+        {
+            Console.WriteLine("You have not adopted any pokemon yet! Make sure to adopt a pokemon so that you can interact with it.");
         }
     }
 }
