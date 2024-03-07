@@ -1,18 +1,17 @@
 ﻿using poke_gotchi.Model;
 using poke_gotchi.Model.Responses;
-using System.Xml.Linq;
 
 namespace poke_gotchi.View
 {
     public class PokegotchiView
     {
-        public static void Welcome()
+        public void Welcome()
         {
             Console.WriteLine("Welcome! Here you'll be able to choose your lovely friend, your Pokemon!");
             Console.Write("To begin, please tell us your name: ");
         }
 
-        public static void MainMenu(string username)
+        public void MainMenu(string username)
         {
             Console.WriteLine("\n");
             Console.WriteLine("Main Menu");
@@ -22,7 +21,7 @@ namespace poke_gotchi.View
             Console.WriteLine("3 - Exit");
         }
 
-        public static void ChoosePokemonMenu(PokemonListResponse pokemonList)
+        public void ChoosePokemonMenu(PokemonListResponse pokemonList)
         {
             Console.WriteLine("\n");
             Console.WriteLine("Choose a Pokemon from the list below:");
@@ -33,7 +32,7 @@ namespace poke_gotchi.View
             }
         }
 
-        public static void AdoptPokemonMenu(string username, string pokemonName)
+        public void AdoptPokemonMenu(string username, string pokemonName)
         {
             Console.WriteLine("\n");
             Console.WriteLine($"{username}, would you like to: ");
@@ -42,7 +41,7 @@ namespace poke_gotchi.View
             Console.WriteLine("3 - Return");
         }
 
-        public static void PokemonInformation(Pokemon pokemon, List<string> abilitiesNames)
+        public void PokemonInformation(Pokemon pokemon, List<string> abilitiesNames)
         {
             Console.Write("\n");
             Console.WriteLine("Chosen Pokemon \n");
@@ -58,12 +57,12 @@ namespace poke_gotchi.View
             }
         }
 
-        public static void AdoptedPokemonMessage(string username, string pokemonName)
+        public void AdoptedPokemonMessage(string username, string pokemonName)
         {
             Console.WriteLine($"{username}, you have adopted {pokemonName} successfully!");
         }
 
-        public static void AdoptedPokemonList(List<Pokemon> pokemonList, string username)
+        public void AdoptedPokemonList(List<AdoptedPokemon> pokemonList, string username)
         {
             for (int i = 0; i < pokemonList.Count; i++)
             {
@@ -74,7 +73,7 @@ namespace poke_gotchi.View
             Console.WriteLine("If you want to return, just type 0.");
         }
 
-        public static void InteractPokemonMenu(string username, string pokemonName)
+        public void InteractPokemonMenu(string username, string pokemonName)
         {
             Console.WriteLine("\n");
             Console.WriteLine($"{username}, would you like to: ");
@@ -85,29 +84,29 @@ namespace poke_gotchi.View
             Console.WriteLine("5 - Return");
         }
 
-        public static void PokemonStatus(Pokemon pokemon)
+        public void AdoptedPokemonStatus(AdoptedPokemon pokemon)
         {
             Console.WriteLine(pokemon.GetSatietyStatus());
             Console.WriteLine(pokemon.GetEnergyStatus());
             Console.WriteLine(pokemon.GetMoodStatus());
         }
 
-        public static void FeedPokemon(string pokemonName)
+        public void FeedPokemon(string pokemonName)
         {
             Console.WriteLine($"You have fed {pokemonName}!");
         }
 
-        public static void PlayWithPokemon(string pokemonName)
+        public void PlayWithPokemon(string pokemonName)
         {
             Console.WriteLine($"You have played with {pokemonName}!");
         }
 
-        public static void RestPokemon(string pokemonName)
+        public void RestPokemon(string pokemonName)
         {
             Console.WriteLine($"You have rested {pokemonName}!");
         }
 
-        public static void AdoptedPokemonEmpty()
+        public void AdoptedPokemonEmpty()
         {
             Console.WriteLine("You have not adopted any pokemon yet! Make sure to adopt a pokemon so that you can interact with it.");
         }

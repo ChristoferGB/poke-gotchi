@@ -6,7 +6,8 @@ namespace poke_gotchi
     {
         public static void Main()
         {
-            PokegotchiController.Play();
+            var controller = new PokegotchiController();
+            controller.Play();
         }
     }
 }

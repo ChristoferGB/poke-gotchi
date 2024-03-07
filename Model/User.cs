@@ -3,19 +3,19 @@
     public class User
     {
         public string Name { get; set; } = "";
-        public List<Pokemon> AdoptedPokemon { get; set; } = new List<Pokemon>();
+        public List<AdoptedPokemon> AdoptedPokemon { get; set; } = new List<AdoptedPokemon>();
 
         public void SetName(string name)
         {
             Name = name;
         }
 
-        public void SetAdoptedPokemon(List<Pokemon> adoptedPokemon)
+        public void SetAdoptedPokemon(List<AdoptedPokemon> adoptedPokemon)
         {
             AdoptedPokemon = adoptedPokemon;
         }
 
-        public void AdoptPokemon(Pokemon pokemon)
+        public void AdoptPokemon(AdoptedPokemon pokemon)
         {
             AdoptedPokemon.Add(pokemon);
         }

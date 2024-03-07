@@ -1,4 +1,5 @@
-﻿using poke_gotchi.Model;
+﻿using AutoMapper;
+using poke_gotchi.Model;
 using poke_gotchi.Model.Exceptions;
 using poke_gotchi.Model.Responses;
 using poke_gotchi.View;
@@ -11,15 +12,24 @@ namespace poke_gotchi.Controller
     {
         private static readonly User user = new();
         private static readonly RestClient client = new();
+        private readonly Mapper mapper;
+        private readonly PokegotchiView view;
         private static readonly JsonSerializerOptions options = new()
         {
             PropertyNameCaseInsensitive = true
         };
         private static readonly string BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
 
-        public static void Play()
+        public PokegotchiController()
         {
-            PokegotchiView.Welcome();
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Pokemon, AdoptedPokemon>());
+            mapper = new Mapper(config);
+            view = new PokegotchiView();
+        }
+
+        public void Play()
+        {
+            view.Welcome();
 
             string username = Console.ReadLine() ?? "Unknown User";
             user.SetName(username);
@@ -28,7 +38,7 @@ namespace poke_gotchi.Controller
 
             while (play == 1)
             {
-                PokegotchiView.MainMenu(user.Name);
+                view.MainMenu(user.Name);
 
                 switch (Console.ReadLine())
                 {
@@ -48,11 +58,11 @@ namespace poke_gotchi.Controller
             }
         }
 
-        private static void AdoptPokemonMenu()
+        private void AdoptPokemonMenu()
         {
             PokemonListResponse pokemonList = GetPokemonListResponse();
 
-            PokegotchiView.ChoosePokemonMenu(pokemonList);
+            view.ChoosePokemonMenu(pokemonList);
 
             int choice;
 
@@ -71,11 +81,11 @@ namespace poke_gotchi.Controller
             AdoptionMenu(pokemon);
         }
 
-        private static void AdoptedPokemon()
+        private void AdoptedPokemon()
         {
             if (user.AdoptedPokemon.Count == 0)
             {
-                PokegotchiView.AdoptedPokemonEmpty();
+                view.AdoptedPokemonEmpty();
                 return;
             }
 
@@ -83,7 +93,7 @@ namespace poke_gotchi.Controller
             
             while (true)
             {
-                PokegotchiView.AdoptedPokemonList(user.AdoptedPokemon, user.Name);
+                view.AdoptedPokemonList(user.AdoptedPokemon, user.Name);
 
                 if (!int.TryParse(Console.ReadLine(), out pokemonChoosed) || pokemonChoosed < 0 || pokemonChoosed > user.AdoptedPokemon.Count)
                 {
@@ -97,13 +107,13 @@ namespace poke_gotchi.Controller
                 InteractPokemon(user.AdoptedPokemon[pokemonChoosed - 1]);
         }
 
-        private static void InteractPokemon(Pokemon pokemon)
+        private void InteractPokemon(AdoptedPokemon pokemon)
         {
             int interaction = 1;
 
             while (interaction == 1)
             {
-                PokegotchiView.InteractPokemonMenu(user.Name, pokemon.Name);
+                view.InteractPokemonMenu(user.Name, pokemon.Name);
 
                 switch (Console.ReadLine())
                 {
@@ -129,22 +139,22 @@ namespace poke_gotchi.Controller
             }
         }
 
-        private static void FeedPokemon(Pokemon pokemon)
+        private void FeedPokemon(AdoptedPokemon pokemon)
         {
             pokemon.Feed();
-            PokegotchiView.FeedPokemon(pokemon.Name);
+            view.FeedPokemon(pokemon.Name);
         }
 
-        private static void PlayWithPokemon(Pokemon pokemon)
+        private void PlayWithPokemon(AdoptedPokemon pokemon)
         {
             pokemon.Play();
-            PokegotchiView.PlayWithPokemon(pokemon.Name);
+            view.PlayWithPokemon(pokemon.Name);
         }
 
-        private static void RestPokemon(Pokemon pokemon)
+        private void RestPokemon(AdoptedPokemon pokemon)
         {
             pokemon.Rest();
-            PokegotchiView.RestPokemon(pokemon.Name);
+            view.RestPokemon(pokemon.Name);
         }
 
         private static RestResponse GetPokemonResponse(string url)
@@ -176,13 +186,13 @@ namespace poke_gotchi.Controller
                    throw new DeserializationException(response, new Exception("GetPokemon"));
         }
 
-        private static void AdoptionMenu(Pokemon pokemon)
+        private void AdoptionMenu(Pokemon pokemon)
         {
             int adopt = 1;
 
             while (adopt == 1)
             {
-                PokegotchiView.AdoptPokemonMenu(user.Name, pokemon.Name);
+                view.AdoptPokemonMenu(user.Name, pokemon.Name);
 
                 switch (Console.ReadLine())
                 {
@@ -203,23 +213,25 @@ namespace poke_gotchi.Controller
             }
         }
 
-        private static void GetPokemonInformation(Pokemon pokemon)
+        private void GetPokemonInformation(Pokemon pokemon)
         {
             List<string> abilitiesNames = pokemon.Abilities.Select(x => x.Ability.Name).ToList();
 
-            PokegotchiView.PokemonInformation(pokemon, abilitiesNames);
+            view.PokemonInformation(pokemon, abilitiesNames);
         }
 
-        private static void GetPokemonStatus(Pokemon pokemon)
+        private void GetPokemonStatus(AdoptedPokemon pokemon)
         {
             GetPokemonInformation(pokemon);
-            PokegotchiView.PokemonStatus(pokemon);
+            view.AdoptedPokemonStatus(pokemon);
         }
 
-        private static void AdoptPokemon(Pokemon pokemon)
+        private void AdoptPokemon(Pokemon pokemon)
         {
-            user.AdoptPokemon(pokemon);
-            PokegotchiView.AdoptedPokemonMessage(user.Name, pokemon.Name);
+            AdoptedPokemon adoptedPokemon = mapper.Map<AdoptedPokemon>(pokemon);
+
+            user.AdoptPokemon(adoptedPokemon);
+            view.AdoptedPokemonMessage(user.Name, adoptedPokemon.Name);
         }
     }
 }

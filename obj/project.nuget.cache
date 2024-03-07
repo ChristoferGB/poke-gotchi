@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9L80z2e5aimSm89ubIXiu2fdZmaJuYi7WqxK+I394j8Mg0EXmUUXKXkPw0gFpQFKaq9u5xP0Ufh9I1jENtiLIA==",
+  "dgSpecHash": "5aAPA1bvrNrK1NhDrCjASTG779aCOzVy6x/vjRJEyoL5vYt0o5lYq2Qz5mHeqoOh2FOSl12hadDZxU0KlcJFFw==",
   "success": true,
   "projectFilePath": "C:\\Users\\christofer.bernardo\\Documents\\Projetos\\poke-gotchi\\poke-gotchi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\christofer.bernardo\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\christofer.bernardo\\.nuget\\packages\\restsharp\\110.2.0\\restsharp.110.2.0.nupkg.sha512",
     "C:\\Users\\christofer.bernardo\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\christofer.bernardo\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",

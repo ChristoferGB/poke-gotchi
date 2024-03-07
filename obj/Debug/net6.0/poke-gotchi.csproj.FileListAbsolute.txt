@@ -33,3 +33,7 @@ C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\obj\Debug\net6.0\ref
 C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\obj\Debug\net6.0\poke-gotchi.pdb
 C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\obj\Debug\net6.0\poke-gotchi.genruntimeconfig.cache
 C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\obj\Debug\net6.0\ref\poke-gotchi.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
