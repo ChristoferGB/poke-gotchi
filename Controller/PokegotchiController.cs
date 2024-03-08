@@ -1,66 +1,70 @@
 ﻿using AutoMapper;
 using poke_gotchi.Model;
-using poke_gotchi.Model.Exceptions;
 using poke_gotchi.Model.Responses;
+using poke_gotchi.Services;
 using poke_gotchi.View;
-using RestSharp;
-using System.Text.Json;
 
 namespace poke_gotchi.Controller
 {
     public class PokegotchiController
     {
         private static readonly User user = new();
-        private static readonly RestClient client = new();
         private readonly Mapper mapper;
         private readonly PokegotchiView view;
-        private static readonly JsonSerializerOptions options = new()
-        {
-            PropertyNameCaseInsensitive = true
-        };
-        private static readonly string BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
+        private readonly PokemonService pokemonService;
 
         public PokegotchiController()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Pokemon, AdoptedPokemon>());
             mapper = new Mapper(config);
             view = new PokegotchiView();
+            pokemonService = new PokemonService();
         }
 
         public void Play()
         {
             view.Welcome();
 
-            string username = Console.ReadLine() ?? "Unknown User";
+            string? username = Console.ReadLine();
+
+            username = string.IsNullOrEmpty(username) ? "Unknown User" : username;
             user.SetName(username);
 
             int play = 1;
 
             while (play == 1)
             {
-                view.MainMenu(user.Name);
-
-                switch (Console.ReadLine())
+                try
                 {
-                    case "1":
-                        AdoptPokemonMenu();
-                        break;
-                    case "2":
-                        AdoptedPokemon();
-                        break;
-                    case "3":
-                        play = 0;
-                        break;
-                    default:
-                        Console.WriteLine("Invalid option");
-                        break;
+                    view.MainMenu(user.Name);
+
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            AdoptPokemonMenu();
+                            break;
+                        case "2":
+                            AdoptedPokemon();
+                            break;
+                        case "3":
+                            play = 0;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("The application returned an error!");
+                    Console.WriteLine($"Error message: {ex.Message}");
                 }
             }
         }
 
         private void AdoptPokemonMenu()
         {
-            PokemonListResponse pokemonList = GetPokemonListResponse();
+            PokemonListResponse pokemonList = pokemonService.GetPokemonList();
 
             view.ChoosePokemonMenu(pokemonList);
 
@@ -76,7 +80,7 @@ namespace poke_gotchi.Controller
                     break;
             }
 
-            Pokemon pokemon = GetPokemon(pokemonList.Results[choice - 1]);
+            Pokemon pokemon = pokemonService.GetChosenPokemon(pokemonList.Results[choice - 1]);
 
             AdoptionMenu(pokemon);
         }
@@ -89,22 +93,15 @@ namespace poke_gotchi.Controller
                 return;
             }
 
-            int pokemonChoosed;
-            
             while (true)
             {
                 view.AdoptedPokemonList(user.AdoptedPokemon, user.Name);
 
-                if (!int.TryParse(Console.ReadLine(), out pokemonChoosed) || pokemonChoosed < 0 || pokemonChoosed > user.AdoptedPokemon.Count)
-                {
-                    Console.WriteLine("Invalid choice. Try again.");
-                }
-                else
-                    break;
-            }
+                if (int.TryParse(Console.ReadLine(), out int pokemonChoosed) && pokemonChoosed > 0 && pokemonChoosed <= user.AdoptedPokemon.Count)
+                    InteractPokemon(user.AdoptedPokemon[pokemonChoosed - 1]);
 
-            if (pokemonChoosed != 0)
-                InteractPokemon(user.AdoptedPokemon[pokemonChoosed - 1]);
+                break;
+            }
         }
 
         private void InteractPokemon(AdoptedPokemon pokemon)
@@ -155,35 +152,6 @@ namespace poke_gotchi.Controller
         {
             pokemon.Rest();
             view.RestPokemon(pokemon.Name);
-        }
-
-        private static RestResponse GetPokemonResponse(string url)
-        {
-            var request = new RestRequest(url, Method.Get);
-
-            var response = client.Get(request);
-
-            return response ?? throw new PokemonResponseNullException();
-        }
-
-        private static PokemonListResponse GetPokemonListResponse()
-        {
-            RestResponse response = GetPokemonResponse(BASE_URL);
-
-            PokemonListResponse? pokemonList = JsonSerializer.Deserialize<PokemonListResponse>(response.Content, options);
-
-            return pokemonList ??
-                   throw new DeserializationException(response, new Exception("GetPokemonListResponse"));
-        }
-
-        private static Pokemon GetPokemon(PokemonDetailResponse chosenPokemon)
-        {
-            RestResponse response = GetPokemonResponse(chosenPokemon.Url);
-
-            Pokemon? pokemon = JsonSerializer.Deserialize<Pokemon>(response.Content, options);
-
-            return pokemon ??
-                   throw new DeserializationException(response, new Exception("GetPokemon"));
         }
 
         private void AdoptionMenu(Pokemon pokemon)

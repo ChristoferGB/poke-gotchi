@@ -2,7 +2,9 @@
 {
     public class PokemonDetailResponse
     {
-        public string Name { get; set; }
+        private string name;
+
+        public string Name { get => name.ToUpper(); set => name = value; }
         public string Url { get; set; }
 
         public PokemonDetailResponse(string name, string url)

@@ -70,7 +70,7 @@ namespace poke_gotchi.View
             }
 
             Console.WriteLine($"{username}, if you wish to interact with one of your pokemon, type its number.");
-            Console.WriteLine("If you want to return, just type 0.");
+            Console.WriteLine("If you want to return, just type anything else.");
         }
 
         public void InteractPokemonMenu(string username, string pokemonName)
