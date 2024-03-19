@@ -1,0 +1,13 @@
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\poke-gotchi.exe
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\poke-gotchi.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\poke-gotchi.deps.json
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\poke-gotchi.runtimeconfig.json
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\poke-gotchi.pdb
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\AutoMapper.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\Microsoft.Extensions.Options.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\Microsoft.Extensions.Primitives.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\RestSharp.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\System.Text.Encodings.Web.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\System.Text.Json.dll
+C:\Users\christofer.bernardo\Documents\Projetos\poke-gotchi\bin\Release\net6.0\publish\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
